@@ -1,6 +1,11 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="Automation Suite" verbose="1" parallel="false">
 
+    <!-- testing ini dijalankan atas 3 Bagian Eksekusi -->
+        <!-- Bagian 1: Setup dan Login -->
+        <!-- Bagian 2: Eksekusi Testing Single Data -->
+        <!-- Bagian 3: Eksekusi Testing Multiple Data dengan DataProvider -->
+
     <!-- Bagian 1: Eksekusi test login -->
     <test name="Login Tests">
         <classes>
@@ -8,10 +13,17 @@
         </classes>
     </test>
     
-    <!-- Bagian 2: Eksekusi test BookStore (Add/Delete) -->
-    <test name="BookStore Tests">
+    <!-- Bagian 2: Testing Single Data -->
+    <test name="BookStore Single Data Tests">
         <classes>
             <class name="com.tests.bookStoreTest1"/>
+        </classes>
+    </test>
+
+        <!-- Eksekusi Testing Multiple Data dengan DataProvider -->
+    <test name="BookStore DataProvider Tests">
+        <classes>
+            <class name="com.tests.booStoreTestDataProvider"/>
         </classes>
     </test>
 

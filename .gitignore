@@ -12,4 +12,5 @@ target/
 *.iml
 
 # Ignore environment template file
-env-template
+.env
+deteletManual.java

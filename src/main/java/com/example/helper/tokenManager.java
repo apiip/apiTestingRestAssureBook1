@@ -4,9 +4,13 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import static io.restassured.RestAssured.given;
 
+import java.util.List;
+
 public class tokenManager {
     private static String token;
     private static String bookId;
+    protected static List<String> bookList;
+    //private static String bookId2;
 
     public static void generateToken() {
         String body = "{\n" +
@@ -39,7 +43,9 @@ public class tokenManager {
                 .statusCode(200)
                 .extract().response();
 
+        bookList = bookRes.jsonPath().getList("books.isbn");
         bookId = bookRes.jsonPath().getString("books[0].isbn");
+        //bookId2 = bookRes.jsonPath().getString("books[1].isbn");
     }
 
     public static String getToken() {
@@ -49,4 +55,12 @@ public class tokenManager {
     public static String getBookId() {
         return bookId;
     }
+
+    public static List<String> getBookList() {
+        return bookList;
+    }
+
+    // public static String getBookId2() {
+    //     return bookId2;
+    // }
 }
